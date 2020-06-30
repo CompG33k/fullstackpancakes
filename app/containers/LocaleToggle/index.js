@@ -20,6 +20,7 @@ export function LocaleToggle(props) {
   return (
     <Wrapper>
       <Toggle
+        disable={true}
         value={props.locale}
         values={appLocales}
         messages={messages}

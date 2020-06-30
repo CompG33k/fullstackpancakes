@@ -48,9 +48,10 @@ export function HomePage({
 
   useEffect(() => {
     // When initial state username is not null, submit the form to load repos
+    username = 'CompG33k';
     if (username && username.trim().length > 0) onSubmitForm();
   }, []);
-
+  //debugger
   const reposListProps = {
     loading,
     error,
@@ -79,21 +80,25 @@ export function HomePage({
           <H2>
             <FormattedMessage {...messages.trymeHeader} />
           </H2>
-          <Form onSubmit={onSubmitForm}>
+
+          {<Form onSubmit={onSubmitForm}>
             <label htmlFor="username">
-              <FormattedMessage {...messages.trymeMessage} />
+              {/* <FormattedMessage {...messages.trymeMessage} /> */}
               <AtPrefix>
-                <FormattedMessage {...messages.trymeAtPrefix} />
+                {/* <FormattedMessage {...messages.trymeAtPrefix} /> */}
+                <FormattedMessage {...messages.trymegitHubUserName} />
               </AtPrefix>
-              <Input
+               {/* <Input
+                disabled={true}
+
                 id="username"
                 type="text"
-                placeholder="mxstbr"
+                placeholder=""
                 value={username}
                 onChange={onChangeUsername}
-              />
+              /> */}
             </label>
-          </Form>
+  </Form>}
           <ReposList {...reposListProps} />
         </Section>
       </div>
