@@ -2,7 +2,8 @@
   "name": "react-boilerplate",
   "version": "4.0.0",
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
-  "homepage": "https://compg33k.github.io//NickVelasco",
+
+  "homepage": "https://compg33k.github.io//NickVelasco/",
   "repository": {
     "type": "git",
     "url": "git://github.com/react-boilerplate/react-boilerplate.git"
