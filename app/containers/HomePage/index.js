@@ -25,6 +25,9 @@ import AtPrefix from './AtPrefix';
 import CenteredSection from './CenteredSection';
 import Form from './Form';
 import Input from './Input';
+import List from './List';
+import ListItem from './ListItem';
+import ListItemTitle from './ListItemTitle';
 import Section from './Section';
 import messages from './messages';
 import { loadRepos } from '../App/actions';
@@ -68,14 +71,38 @@ export function HomePage({
         />
       </Helmet>
       <div>
-        <CenteredSection>
+        {/* <CenteredSection> */}
           <H2>
             <FormattedMessage {...messages.startProjectHeader} />
           </H2>
           <p>
             <FormattedMessage {...messages.startProjectMessage} />
           </p>
-        </CenteredSection>
+        {/* </CenteredSection> */}
+        <List>
+          <ListItem>
+          <ListItemTitle>
+            <FormattedMessage {...messages.feedbackHeader} />
+          </ListItemTitle>
+            <List>
+              <ListItem>
+              <p>
+                <FormattedMessage {...messages.languageMessage} />
+              </p>
+            </ListItem>
+            <ListItem>
+              <p>
+                <FormattedMessage {...messages.technologyMessage} />
+              </p>
+            </ListItem>
+            <ListItem>
+              <p>
+                <FormattedMessage {...messages.designPatternMessage} />
+              </p>
+            </ListItem>
+          </List>
+        </ListItem>
+        </List>
         <Section>
           <H2>
             <FormattedMessage {...messages.trymeHeader} />
