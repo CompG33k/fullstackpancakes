@@ -9,7 +9,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route ,
+  BrowserRouter as Router,
+  HashRouter,
+  Link} from 'react-router-dom';
+import { Redirect } from 'react-router';
 
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
@@ -32,6 +36,7 @@ const AppWrapper = styled.div`
 
 export default function App() {
   return (
+
     <AppWrapper>
       <Helmet
         titleTemplate="%s - The Full Stack Engineer"
@@ -40,13 +45,16 @@ export default function App() {
         <meta name="description" content="A React.js Nick's application" />
       </Helmet>
       <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        {/* <Route path="/features" component={FeaturePage} /> */}
-        <Route path="/aboutme" component={AboutMePage} />
-        <Route path="/resume" component={ResumePage} />
-        <Route path="" component={NotFoundPage} />
-      </Switch>
+
+        <Switch>
+          {/* <Route exact path="/" component={() =><Redirect  to='/' component={HomePage}/>}/> */}
+          {/* <Route tabIndex = "0" path={process.env.PUBLIC_URL +'/'} component={HomePage} /> */}
+          <Route path="/" component={HomePage} />
+          <Route path="/aboutme" component={AboutMePage} />
+          <Route path="/resume" component={ResumePage} />
+          <Route path="" component={NotFoundPage} />
+        </Switch>
+       
       <Footer />
       <GlobalStyle />
     </AppWrapper>
