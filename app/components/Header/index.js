@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { BrowserRouter as Router, HashRouter, Switch, Route, Link } from 'react-router-dom';
 
 import A from './A';
 import Img from './Img';
@@ -11,16 +12,21 @@ import messages from './messages';
 function Header() {
   return (
     <div>
-      <A href="https://www.reactboilerplate.com/">
+       <A >
         <Img src={Banner} alt="react-boilerplate - Logo" />
       </A>
-      <NavBar>
-        <HeaderLink to="/">
+       <NavBar>
+        {/* <ul >
+            <li><Link to="/" >home </Link></li>
+            <li><Link to="/AboutMe" >aboutme</Link></li>
+            <li><Link to="/Resume" >resume</Link></li>
+        </ul> */}
+
+
+
+        <HeaderLink  to="/NickVelasco/">
           <FormattedMessage {...messages.home} />
         </HeaderLink>
-        {/* <HeaderLink to="/features">
-          <FormattedMessage {...messages.features} />
-        </HeaderLink> */}
         <HeaderLink to="/aboutme">
           <FormattedMessage {...messages.aboutme} />
         </HeaderLink>

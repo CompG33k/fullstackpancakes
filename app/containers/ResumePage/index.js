@@ -3,17 +3,32 @@
  *
  * List all the features
  */
+
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
-import CenteredSection from '../HomePage/CenteredSection';
-
-import H1 from 'components/H1';
-import H2 from 'components/H2';
-import messages from './messages';
-
+import { MobilePDFReader } from 'react-read-pdf';
 
 export default function ResumePage() {
+
+  function isMobileSafari() {
+    return navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/)
+}
+  function PDFViewer(){
+    return(
+                  <object width='100%' height='800px'
+                  data="https://github.com/CompG33k/TheFullStackDeveloper/raw/gh-pages/NickJVelascoResume.pdf" type="application/pdf">
+                  </object>
+    );
+  }
+  function MobilePDFViewer(){
+    return(
+      <div style={{top:'50',overflow:'scroll',height:600}}>
+               <MobilePDFReader auto='scale' url="https://github.com/CompG33k/TheFullStackDeveloper/raw/gh-pages/NickJVelascoResume.pdf"/>
+                  {/* <MobilePDFReader auto='scale' url={process.env.PUBLIC_URL + '/NickJVelascoResume.pdf'}/> */}
+             </div>
+    );
+  }
+
   return (
     <div>
       <Helmet>
@@ -23,15 +38,22 @@ export default function ResumePage() {
           content="Resume page of React.js Boilerplate application"
         />
       </Helmet>
-      {/* <H2>
-        <CenteredSection>
-          { <FormattedMessage {...messages.header} /> }
-        </CenteredSection>
-      </H2> */}
-      <div className={'resume-container'}>
-                <object width="100%" height="800px"
-                data="https://github.com/CompG33k/TheFullStackDeveloper/raw/gh-pages/NickJVelascoResume.pdf" type="application/pdf">   </object>
-            </div>
+ {
+   isMobileSafari()?
+   MobilePDFViewer()
+   :PDFViewer()
+ }
+
+{/*
+{ (window.navigator.standalone == true)?
+    // <div  div style={{overflow:'scroll',height:600}}>
+      <MobilePDFReader auto='scale' url="https://github.com/CompG33k/TheFullStackDeveloper/raw/gh-pages/NickJVelascoResume.pdf"/>
+    // </div>
+: */}
+
+
+{/* <object width='100%' height='800px'
+                data="https://github.com/CompG33k/TheFullStackDeveloper/raw/gh-pages/NickJVelascoResume.pdf" type="application/pdf">   </object> */}
 
     </div>
   );

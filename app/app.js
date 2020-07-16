@@ -50,7 +50,7 @@ const render = messages => {
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={messages}>
-        <ConnectedRouter history={history}>
+        <ConnectedRouter basename="/NickVelasco/" history={history}>
           <App />
         </ConnectedRouter>
       </LanguageProvider>
