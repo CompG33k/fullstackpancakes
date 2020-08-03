@@ -23,5 +23,9 @@ export default defineMessages({
   resume: {
     id: `${scope}.resume`,
     defaultMessage: 'Resume',
+  },
+  maximize: {
+    id: `${scope}.maximize`,
+    defaultMessage: 'Maximize Alphaness!',
   }
 });

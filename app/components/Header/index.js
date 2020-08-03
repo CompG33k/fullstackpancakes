@@ -33,6 +33,9 @@ function Header() {
         <HeaderLink to="/resume">
           <FormattedMessage {...messages.resume} />
         </HeaderLink>
+        <HeaderLink to="/maximum">
+          <FormattedMessage {...messages.maximize} />
+        </HeaderLink>
       </NavBar>
     </div>
   );

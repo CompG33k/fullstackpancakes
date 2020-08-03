@@ -18,6 +18,7 @@ import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import AboutMePage from 'containers/AboutMePage/Loadable';
 import ResumePage from 'containers/ResumePage/Loadable';
+import MaximizePage from 'containers/MaximumPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
@@ -47,6 +48,7 @@ export default function App() {
             <Route exact path="/NickVelasco/" component={HomePage} />
             <Route path='/aboutme' component={AboutMePage}/>
             <Route path='/resume' component={ResumePage} />
+            <Route path='/maximum' component={MaximizePage} />
             <Route path="" component={NotFoundPage}  />
         </Switch>
       <Footer />

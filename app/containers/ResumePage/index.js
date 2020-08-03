@@ -3,10 +3,8 @@
  *
  * List all the features
  */
-
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { MobilePDFReader } from 'react-read-pdf';
 
 export default function ResumePage() {
 
@@ -15,19 +13,25 @@ export default function ResumePage() {
 }
   function PDFViewer(){
     return(
-                  <object width='100%' height='800px'
-                  data="https://github.com/CompG33k/TheFullStackDeveloper/raw/gh-pages/NickJVelascoResume.pdf" type="application/pdf">
+                  <div className='pdf-wrapper'>
+                  <object className='react-pdf-obj'
+                          data="https://github.com/CompG33k/TheFullStackDeveloper/raw/gh-pages/NickJVelascoResume.pdf"
+                          type="application/pdf">
                   </object>
+                  </div>
     );
   }
-  function MobilePDFViewer(){
-    return(
-      <div style={{top:'50',overflow:'scroll',height:600}}>
-               <MobilePDFReader auto='scale' url="https://github.com/CompG33k/TheFullStackDeveloper/raw/gh-pages/NickJVelascoResume.pdf"/>
-                  {/* <MobilePDFReader auto='scale' url={process.env.PUBLIC_URL + '/NickJVelascoResume.pdf'}/> */}
-             </div>
-    );
-  }
+   function MobilePDFViewer(){
+     return(
+      <div className='pdf-wrapper'>
+      <iframe
+        className="react-pdf-mobile"
+        src="https://drive.google.com/viewerng/viewer?url=https://github.com/CompG33k/TheFullStackDeveloper/raw/gh-pages/NickJVelascoResume.pdf?pid=explorer&efh=false&a=v&chrome=false&embedded=true"
+        title="NickVelascoResume">
+      </iframe>
+      </div>
+     );
+   }
 
   return (
     <div>
@@ -38,23 +42,11 @@ export default function ResumePage() {
           content="Resume page of React.js Boilerplate application"
         />
       </Helmet>
- {
-   isMobileSafari()?
-   MobilePDFViewer()
-   :PDFViewer()
- }
-
-{/*
-{ (window.navigator.standalone == true)?
-    // <div  div style={{overflow:'scroll',height:600}}>
-      <MobilePDFReader auto='scale' url="https://github.com/CompG33k/TheFullStackDeveloper/raw/gh-pages/NickJVelascoResume.pdf"/>
-    // </div>
-: */}
-
-
-{/* <object width='100%' height='800px'
-                data="https://github.com/CompG33k/TheFullStackDeveloper/raw/gh-pages/NickJVelascoResume.pdf" type="application/pdf">   </object> */}
-
+    {
+      isMobileSafari()
+      ? MobilePDFViewer()
+      :  PDFViewer()
+    }
     </div>
   );
 }
