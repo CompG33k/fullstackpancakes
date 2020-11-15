@@ -1,11 +1,16 @@
 /**
  * Create the store with dynamic reducers
  */
-
+import { createHashHistory } from 'history'
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
+
+export const history = createHashHistory({
+  hashType: 'slash',
+  getUserConfirmation: (message, callback) => callback(window.confirm(message))
+});
 
 export default function configureStore(initialState = {}, history) {
   let composeEnhancers = compose;

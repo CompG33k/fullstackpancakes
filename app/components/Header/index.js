@@ -16,15 +16,8 @@ function Header() {
         <Img src={Banner} alt="react-boilerplate - Logo" />
       </A>
        <NavBar>
-        {/* <ul >
-            <li><Link to="/" >home </Link></li>
-            <li><Link to="/AboutMe" >aboutme</Link></li>
-            <li><Link to="/Resume" >resume</Link></li>
-        </ul> */}
-
-
-
-        <HeaderLink  to="/NickVelasco/">
+      
+        <HeaderLink to="/">
           <FormattedMessage {...messages.home} />
         </HeaderLink>
         <HeaderLink to="/aboutme">
@@ -33,9 +26,10 @@ function Header() {
         <HeaderLink to="/resume">
           <FormattedMessage {...messages.resume} />
         </HeaderLink>
-        <HeaderLink to="/maximum">
+       {/*  <HeaderLink to="/maximum">
           <FormattedMessage {...messages.maximize} />
-        </HeaderLink>
+        </HeaderLink> */}
+
       </NavBar>
     </div>
   );

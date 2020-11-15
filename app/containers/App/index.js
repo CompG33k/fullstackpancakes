@@ -44,8 +44,7 @@ export default function App() {
       </Helmet>
       <Header />
         <Switch>
-            {/* <IndexRoute component = {HomePage} /> */}
-            <Route exact path="/NickVelasco/" component={HomePage} />
+            <Route path="/" exact component={HomePage} />
             <Route path='/aboutme' component={AboutMePage}/>
             <Route path='/resume' component={ResumePage} />
             <Route path='/maximum' component={MaximizePage} />
